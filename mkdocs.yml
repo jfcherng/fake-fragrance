@@ -1,0 +1,131 @@
+# yaml-language-server: $schema=https://squidfunk.github.io/mkdocs-material/schema.json
+
+site_name: 正／仿貨香水的辨識方式
+site_description: 正／仿貨香水的辨識方式
+site_author: Jack Cherng (jfcherng)
+site_url: https://github.com/jfcherng/fake-fragrance
+
+repo_name: fake-fragrance
+repo_url: https://github.com/jfcherng/fake-fragrance
+# empty to disable the edit button
+edit_uri: edit/main/src/
+copyright: Copyright &copy; 2024 Jack Cherng (jfcherng)
+
+docs_dir: src
+site_dir: site
+
+nav:
+  - '說明': 'index.md'
+  - '通用規則': 'general.md'
+  - '品牌':
+      - 'Le Labo': 'brands/le-labo.md'
+      - 'Tom Ford': 'brands/tom-ford.md'
+
+###############################################################
+# http://squidfunk.github.io/mkdocs-material/getting-started/ #
+###############################################################
+
+theme:
+  name: material
+  # custom_dir: theme
+  language: en
+  icon:
+    logo: fontawesome/solid/book
+    repo: fontawesome/brands/github
+  font: false
+  palette:
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate
+      primary: orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.expand
+    # - navigation.instant
+    # - navigation.sections
+    # - navigation.tabs
+    - navigation.top
+    # - toc.integrate
+
+extra:
+  font:
+    code: Roboto Mono
+    text: Roboto
+  social:
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/jfcherng
+    - icon: fontawesome/brands/line
+      link: https://line.me/ti/p/KO2D7F06Y-
+    - icon: fontawesome/brands/github
+      link: https://github.com/jfcherng
+
+extra_css: []
+
+extra_javascript:
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - _assets/js/config-mathjax.js
+
+plugins:
+  - exclude:
+      glob:
+        - _snippets/*
+  - search:
+      lang:
+        - en
+      separator: '[:：、,，.。!！?？()（）/／]+'
+  - minify:
+      minify_html: true
+  - git-revision-date-localized:
+      type: datetime
+      locale: en
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - codehilite:
+      linenums: false
+      noclasses: false
+      pygments_style: default
+  - footnotes
+  - toc:
+      permalink: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify { kwds: { case: lower } }
+      # toc_depth: 4
+  #####################################################
+  # pip install -U pymdown-extensions                 #
+  # http://facelessuser.github.io/pymdown-extensions/ #
+  #####################################################
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets:
+      base_path: src/_snippets
+      restrict_base_path: false
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+      clickable_checkbox: false
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tilde
